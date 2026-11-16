@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Currículum de Marta Pavón Muñoz, estudiante de Trabajo Social.">
+  <title>Marta Pavón Muñoz | Currículum</title>
+  <style>
+    :root {
+      /* Verde salvia apagado para el fondo de la columna lateral. */
+      --color-salvia: #85937F;
+      /* Beige piedra claro para el fondo de la columna principal. */
+      --color-fondo: #E3DFDE;
+      /* Gris carbón para títulos y texto principal. */
+      --color-carbon: #3B3B3B;
+      /* Gris medio para párrafos y datos secundarios. */
+      --color-secundario: #595959;
+      /* Crema suave para el texto y los iconos sobre el fondo verde. */
+      --color-crema: #F2EFE9;
+      /* Verde oliva oscuro para el progreso de idiomas. */
+      --color-oliva: #637356;
+      /* Líneas de separación tenues en el fondo claro. */
+      --linea-principal: rgba(59, 59, 59, 0.25);
+      /* Líneas de separación tenues en el fondo verde. */
+      --linea-lateral: rgba(242, 239, 233, 0.35);
+      /* Fondo translúcido del marco de la fotografía. */
+      --crema-transparente: rgba(242, 239, 233, 0.16);
+      /* Tono crema para la línea vertical de habilidades. */
+      --crema-linea: rgba(242, 239, 233, 0.62);
+      /* Base crema de las barras de idioma. */
+      --crema-barra: rgba(242, 239, 233, 0.82);
+      /* Borde crema del marco ovalado de la fotografía. */
+      --crema-borde: rgba(242, 239, 233, 0.9);
+      /* Familia sans-serif de respaldo para los textos de lectura. */
+      --fuente-sans: "Montserrat", "Poppins", "Raleway", Arial, sans-serif;
+      /* Serif editorial de respaldo para el nombre. */
+      --fuente-serif: "Cormorant Garamond", "Didot", "Bodoni 72", Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--color-carbon);
+      background: var(--color-fondo);
+      font-family: var(--fuente-sans);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .cv {
+      display: grid;
+      grid-template-columns: 45% 55%;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .lateral {
+      padding: 54px clamp(28px, 5vw, 76px) 60px clamp(28px, 5vw, 76px);
+      color: var(--color-crema);
+      background: var(--color-salvia);
+    }
+
+    .principal {
+      padding: 70px clamp(32px, 7vw, 104px) 64px clamp(32px, 6vw, 88px);
+      background: var(--color-fondo);
+    }
+
+    .foto-marco {
+      width: min(100%, 290px);
+      height: 350px;
+      margin: 0 auto 54px;
+      overflow: hidden;
+      border: 5px solid var(--crema-borde);
+      border-radius: 50%;
+      background: var(--crema-transparente);
+    }
+
+    .foto-marco img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .bloque {
+      position: relative;
+      padding: 0 0 34px;
+      margin: 0 0 32px;
+    }
+
+    .lateral .bloque::after,
+    .principal .bloque::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      content: "";
+      background: var(--linea-principal);
+    }
+
+    .lateral .bloque::after {
+      background: var(--linea-lateral);
+    }
+
+    .lateral .bloque::before,
+    .principal .bloque::before {
+      position: absolute;
+      z-index: 1;
+      bottom: -3px;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      content: "";
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .lateral .bloque:last-child,
+    .principal .bloque:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .lateral .bloque:last-child::before,
+    .lateral .bloque:last-child::after,
+    .principal .bloque:last-child::before,
+    .principal .bloque:last-child::after {
+      display: none;
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .lateral h2 {
+      color: var(--color-crema);
+    }
+
+    .principal h2 {
+      color: var(--color-carbon);
+    }
+
+    .contacto-lista {
+      display: grid;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contacto-lista li {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      overflow-wrap: anywhere;
+    }
+
+    .icono-contacto {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      color: var(--color-salvia);
+      background: var(--color-crema);
+      border-radius: 50%;
+    }
+
+    .icono-contacto svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .contacto-lista a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contacto-lista a:hover,
+    .contacto-lista a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .habilidades {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      margin: 0;
+      padding: 0 0 0 20px;
+      list-style: none;
+    }
+
+    .habilidades::before {
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 4px;
+      width: 1px;
+      content: "";
+      background: var(--crema-linea);
+    }
+
+    .habilidades li {
+      position: relative;
+    }
+
+    .habilidades li::before {
+      position: absolute;
+      top: 0.65em;
+      left: -20px;
+      width: 9px;
+      height: 9px;
+      content: "";
+      border: 2px solid var(--color-crema);
+      border-radius: 50%;
+      background: var(--color-salvia);
+    }
+
+    .idioma {
+      margin: 0 0 19px;
+    }
+
+    .idioma:last-child {
+      margin-bottom: 0;
+    }
+
+    .idioma-cabecera {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 7px;
+    }
+
+    .idioma-nombre {
+      font-weight: 600;
+    }
+
+    .idioma-nivel {
+      font-size: 0.83rem;
+      text-align: right;
+    }
+
+    .barra {
+      height: 8px;
+      overflow: hidden;
+      background: var(--crema-barra);
+      border-radius: 999px;
+    }
+
+    .barra span {
+      display: block;
+      height: 100%;
+      background: var(--color-oliva);
+      border-radius: inherit;
+    }
+
+    .perfil {
+      padding-bottom: 40px;
+      margin-bottom: 38px;
+    }
+
+    .nombre {
+      max-width: 700px;
+      margin: 0 0 12px;
+      color: var(--color-carbon);
+      font-family: var(--fuente-serif);
+      font-size: clamp(3rem, 5.2vw, 5.2rem);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 0.98;
+    }
+
+    .cargo {
+      margin: 0 0 20px;
+      color: var(--color-carbon);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .presentacion {
+      max-width: 620px;
+      margin: 0;
+      color: var(--color-secundario);
+      line-height: 1.85;
+    }
+
+    .lista-principal {
+      display: grid;
+      gap: 19px;
+      margin: 0;
+      padding: 0 0 0 20px;
+      color: var(--color-secundario);
+    }
+
+    .lista-principal li {
+      padding-left: 4px;
+    }
+
+    .lista-principal li::marker {
+      color: var(--color-carbon);
+    }
+
+    .lista-principal strong {
+      color: var(--color-carbon);
+      font-weight: 600;
+    }
+
+    @media (max-width: 760px) {
+      .cv {
+        grid-template-columns: 1fr;
+      }
+
+      .lateral {
+        padding: 38px 28px 42px;
+      }
+
+      .principal {
+        padding: 46px 28px 50px;
+      }
+
+      .foto-marco {
+        width: 220px;
+        height: 270px;
+        margin-bottom: 42px;
+      }
+
+      .nombre {
+        font-size: clamp(3rem, 12vw, 4.5rem);
+      }
+    }
+
+    @media (max-width: 380px) {
+      .lateral,
+      .principal {
+        padding-right: 22px;
+        padding-left: 22px;
+      }
+
+      .idioma-cabecera {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .idioma-nivel {
+        text-align: left;
+      }
+    }
+
+    @media print {
+      .cv {
+        grid-template-columns: 42% 58%;
+      }
+
+      .lateral,
+      .principal {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .lateral {
+        padding: 36px;
+      }
+
+      .principal {
+        padding: 46px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="cv">
+    <aside class="lateral" aria-label="Contacto, habilidades e idiomas">
+      <div class="foto-marco">
+        <img src="imagenes/foto.png" alt="Fotografía de Marta Pavón Muñoz">
+      </div>
+
+      <!-- ===== SECCIÓN: CONTACTO ===== -->
+      <section class="bloque" aria-labelledby="titulo-contacto">
+        <h2 id="titulo-contacto">Contacto</h2>
+        <ul class="contacto-lista">
+          <li>
+            <span class="icono-contacto" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 3h3l2 5-2 1.5a15 15 0 0 0 4.5 4.5L16 12l5 2v3c0 1.1-.9 2-2 2C10.7 19 5 13.3 5 6c0-1.7.7-3 2-3Z"/></svg>
+            </span>
+            <a href="tel:+34697392282">+34 697 39 22 82</a>
+          </li>
+          <li>
+            <span class="icono-contacto" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+            </span>
+            <a href="mailto:martapavonmunoz6@gmail.com">martapavonmunoz6@gmail.com</a>
+          </li>
+        </ul>
+      </section>
+      <!-- ===== FIN: CONTACTO ===== -->
+
+      <!-- ===== SECCIÓN: HABILIDADES ===== -->
+      <section class="bloque" aria-labelledby="titulo-habilidades">
+        <h2 id="titulo-habilidades">Habilidades</h2>
+        <ul class="habilidades">
+          <li>Compromiso</li>
+          <li>Responsabilidad</li>
+          <li>Perfeccionismo</li>
+          <li>Simpatía</li>
+          <li>Habilidades sociales de cara al público</li>
+          <li>Dotes de trabajo en equipo</li>
+        </ul>
+      </section>
+      <!-- ===== FIN: HABILIDADES ===== -->
+
+      <!-- ===== SECCIÓN: IDIOMAS ===== -->
+      <section class="bloque" aria-labelledby="titulo-idiomas">
+        <h2 id="titulo-idiomas">Idiomas</h2>
+        <div class="idioma">
+          <div class="idioma-cabecera">
+            <span class="idioma-nombre">Español</span>
+            <span class="idioma-nivel">Nativo</span>
+          </div>
+          <div class="barra" role="img" aria-label="Español: nativo">
+            <span style="width: 100%"></span>
+          </div>
+        </div>
+        <div class="idioma">
+          <div class="idioma-cabecera">
+            <span class="idioma-nombre">Inglés</span>
+            <span class="idioma-nivel">Nivel medio-alto · B1 Cambridge</span>
+          </div>
+          <div class="barra" role="img" aria-label="Inglés: nivel medio-alto, certificación B1 Cambridge">
+            <span style="width: 72%"></span>
+          </div>
+        </div>
+      </section>
+      <!-- ===== FIN: IDIOMAS ===== -->
+    </aside>
+
+    <div class="principal">
+      <!-- ===== SECCIÓN: PERFIL ===== -->
+      <header class="bloque perfil">
+        <h1 class="nombre">Marta Pavón<br>Muñoz</h1>
+        <p class="cargo">Estudiante de Trabajo Social</p>
+        <p class="presentacion">Estudiante de cuarto curso del Grado en Trabajo Social en Jerez de la Frontera, en modalidad presencial de mañana. Persona comprometida, responsable, perfeccionista y simpática, en búsqueda de empleo. Cuenta con habilidades sociales de cara al público y dotes para el trabajo en equipo.</p>
+      </header>
+      <!-- ===== FIN: PERFIL ===== -->
+
+      <!-- ===== SECCIÓN: FORMACIÓN ===== -->
+      <section class="bloque" aria-labelledby="titulo-formacion">
+        <h2 id="titulo-formacion">Formación</h2>
+        <ul class="lista-principal">
+          <li><strong>Grado en Trabajo Social</strong> <span>— 2023 - Actualidad</span></li>
+          <li><strong>Graduado en Bachillerato de Ciencias Sociales</strong> <span>— Amor de Dios Cádiz · 2021 - 2023</span></li>
+          <li><strong>B1 Inglés Cambridge</strong> <span>— 2021</span></li>
+          <li><strong>Graduado en E.S.O.</strong> <span>— Amor de Dios Cádiz · 2017 - 2021</span></li>
+        </ul>
+      </section>
+      <!-- ===== FIN: FORMACIÓN ===== -->
+
+      <!-- ===== SECCIÓN: EXPERIENCIA ===== -->
+      <section class="bloque" aria-labelledby="titulo-experiencia">
+        <h2 id="titulo-experiencia">Experiencia</h2>
+        <ul class="lista-principal">
+          <li><strong>Cocinera</strong> <span>— Grupo Zena Domino's Pizza · Mayo 2026 - Actualidad</span></li>
+          <li><strong>Camarero</strong> <span>— ETT Catering · Octubre 2025 - Mayo 2026</span></li>
+          <li><strong>Teleoperadora</strong> <span>— Seguros médicos DKV · Julio 2025</span></li>
+          <li><strong>Voluntaria</strong> <span>— Asociación (AGEBH) · Abril Enero 2023 - Abril 2023</span></li>
+        </ul>
+      </section>
+      <!-- ===== FIN: EXPERIENCIA ===== -->
+    </div>
+  </main>
+</body>
+</html>
